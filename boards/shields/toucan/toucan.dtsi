@@ -139,7 +139,7 @@ glidepoint_listener: glidepoint_listener {
 &zip_gestures {
     tap-detection;
     touch-layer = <3>;
-    ignore-layer = <1 5>;
+    ignore-layers = <1 5>;
     prevent_movement_during_tap;
     tap-timout-ms = <150>;
     tap-to-drag;
