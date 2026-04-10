@@ -3,7 +3,8 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <physical_layouts.dtsi>
 // 추가
-#include <behaviors/input_processor_gestures_dh.dtsi>
+#include <behaviors/input_processor_absolute_to_relative.dtsi>  // 마우스 이동 필수 파일
+#include <behaviors/input_processor_gestures_dh.dtsi> // 제스처 설정파일
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/input/input-event-codes.h>
 
@@ -114,7 +115,8 @@
 
         /* 메인 레이어: 변환기 없이 스케일러와 프로세서만 통과 */
         input-processors = <
-            &zip_xy_scaler 250 100 
+            &zip_absolute_to_relative
+            &zip_xy_scaler 250 100
             &zip_gestures
             &touch_processor
         >;
@@ -123,6 +125,7 @@
         auto_layer_mode {
             layers = <3>;
             input-processors = <
+                &zip_absolute_to_relative
                 &zip_xy_scaler 250 100
                 &zip_gestures
                 &touch_processor
@@ -132,6 +135,7 @@
         scroller {
             layers = <1 5>;
             input-processors = <
+                &zip_absolute_to_relative
                 &zip_xy_to_scroll_mapper
                 &zip_scroll_scaler 20 100
                 &zip_scroll_transform INPUT_TRANSFORM_X_INVERT
