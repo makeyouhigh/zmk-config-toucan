@@ -3,7 +3,7 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <physical_layouts.dtsi>
 // 추가
-#include <behaviors/input_processor_gestures.dtsi>
+#include <behaviors/input_processor_gestures_dh.dtsi>
 #include <dt-bindings/zmk/pointing.h>
 
 
