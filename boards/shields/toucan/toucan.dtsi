@@ -5,6 +5,7 @@
 // 추가
 #include <behaviors/input_processor_gestures_dh.dtsi>
 #include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/input/input-event-codes.h>
 
 
 / {
@@ -137,11 +138,22 @@
             >;
         };
     };
+    /* 추가-탭투클릭 */
+    input_processors {
+        /* 이 블록이 'touch_processor'가 무엇인지 정의하는 부분입니다. */
+        touch_processor: touch_processor {
+            compatible = "zmk,input-processor-behaviors";
+            #input-processor-cells = <0>;
+            codes = <INPUT_BTN_TOUCH>; // 터치 이벤트를 감시
+            bindings = <&mo 3>;        // 터치되면 3번 레이어 활성화
+        };
+    };
 };
 //추가 - 탭 투 클릭
 &zip_gestures {
     tap-detection;
     prevent_movement_during_tap;
+    tab-timout-ms = <150>;
     tap-to-drag;
     circular-scroll;
     circular-scroll-rim-percent = <10>;
