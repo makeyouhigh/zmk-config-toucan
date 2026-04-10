@@ -2,6 +2,9 @@
 #include <dt-bindings/zmk/input_transform.h>
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <physical_layouts.dtsi>
+// 추가
+#include <behaviors/input_processor_gestures.dtsi>
+#include <dt-bindings/zmk/pointing.h>
 
 
 / {
@@ -107,7 +110,24 @@
         compatible = "zmk,input-listener";
         status = "disabled";
         device = <&glidepoint_split>;
-        input-processors = <&zip_xy_scaler 250 100>;
+
+        /* 메인 레이어: 변환기 없이 스케일러와 프로세서만 통과 */
+        input-processors = <
+            &zip_xy_scaler 250 100 
+            &zip_gestures
+            &touch_processor
+        >;
+
+        /* 3번 레이어 상태에서도 동일하게 작동 */
+        auto_layer_mode {
+            layers = <3>;
+            input-processors = <
+                &zip_xy_scaler 250 100
+                &zip_gestures
+                &touch_processor
+            >;
+        };
+
         scroller {
             layers = <1 5>;
             input-processors = <
@@ -118,7 +138,17 @@
         };
     };
 };
+//추가 - 탭 투 클릭
+&zip_gestures {
+    tap-detection;
+    prevent_movement_during_tap;
+    tap-to-drag;
+    circular-scroll;
+    circular-scroll-rim-percent = <10>;
+    tap-right-click-layer = <1>;
+};
 
+//추가 - 배터리 충전전류
 &gpio0 {
     charge_100ma_hog {
         gpio-hog;
