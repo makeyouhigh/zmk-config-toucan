@@ -116,50 +116,30 @@ glidepoint_listener: glidepoint_listener {
         /* 1. 기본 레이어 (레이어 0) */
         input-processors = <
             &zip_gestures             // 1순위: 좌표가 변하기 전에 제스처(써클 스크롤) 감지
-            &touch_processor          // 2순위: 터치 신호 확인해서 레이어 3으로 보냄
             &zip_absolute_to_relative // 3순위: 이제 마우스 이동을 위해 좌표 변환
-            &zip_xy_scaler 250 100    // 4순위: 변환된 신호의 속도 조절
+            &zip_xy_scaler 150 100    // 4순위: 변환된 신호의 속도 조절
+            &zip_scroll_scaler (-20) 100  // 스크롤 방향 반전을 위해 음수(-) 값 적용
         >;
 
-        /* 2. 오토레이어 상태 (레이어 3) */
-        /* 손을 대고 있는 동안에도 마우스가 움직여야 하므로 똑같이 설정합니다. */
-        auto_layer_mode {
-            layers = <3>;
-            input-processors = <
-                &zip_gestures
-                &touch_processor
-                &zip_absolute_to_relative
-                &zip_xy_scaler 250 100
-            >;
-        };
-
-        /* 3. 스크롤 모드 (레이어 1, 5) */
+        /* 2. 스크롤 모드 (레이어 1, 5) */
         scroller {
             layers = <1 5>;
             input-processors = <
                 &zip_gestures             // 스크롤 중에도 탭 클릭(우클릭 등) 가능하게 추가
                 &zip_absolute_to_relative 
                 &zip_xy_to_scroll_mapper
-                &zip_scroll_scaler 20 100
+                &zip_scroll_scaler 15 100
                 &zip_scroll_transform INPUT_TRANSFORM_X_INVERT
             >;
         };
     };
-
-    /* 추가-탭투클릭 */
-    input_processors {
-        /* 이 블록이 'touch_processor'가 무엇인지 정의하는 부분입니다. */
-        touch_processor: touch_processor {
-            compatible = "zmk,input-processor-behaviors";
-            #input-processor-cells = <0>;
-            codes = <INPUT_BTN_TOUCH>; // 터치 이벤트를 감시
-            bindings = <&mo 3>;        // 터치되면 3번 레이어 활성화
-        };
-    };
 };
+
 //추가 - 탭 투 클릭
 &zip_gestures {
     tap-detection;
+    touch-layer = <3>;
+    ignore-layer = <1 5>;
     prevent_movement_during_tap;
     tap-timout-ms = <150>;
     tap-to-drag;
