@@ -117,7 +117,7 @@ glidepoint_listener: glidepoint_listener {
         input-processors = <
             &zip_gestures             // 1순위: 좌표가 변하기 전에 제스처(써클 스크롤) 감지
             &zip_absolute_to_relative // 3순위: 이제 마우스 이동을 위해 좌표 변환
-            &zip_xy_scaler 150 100    // 4순위: 변환된 신호의 속도 조절
+            &zip_xy_scaler 100 100    // 4순위: 변환된 신호의 속도 조절
             &zip_scroll_scaler (-20) 100  // 스크롤 방향 반전을 위해 음수(-) 값 적용
         >;
 
