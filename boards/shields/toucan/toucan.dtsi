@@ -141,11 +141,10 @@ glidepoint_listener: glidepoint_listener {
     touch-layer = <3>;
     ignore-layers = <1 5>;
     prevent_movement_during_tap;
-    tap-timout-ms = <150>;
+    tap-timout-ms = <100>;
     tap-to-drag;
     circular-scroll;
-    circular-scroll-rim-percent = <10>;
-    tap-right-click-layer = <1>;
+    circular-scroll-rim-percent = <8>;
 };
 
 //추가 - 배터리 충전전류
