@@ -128,7 +128,7 @@ glidepoint_listener: glidepoint_listener {
                 &zip_gestures             // 스크롤 중에도 탭 클릭(우클릭 등) 가능하게 추가
                 &zip_absolute_to_relative 
                 &zip_xy_to_scroll_mapper
-                &zip_scroll_scaler 15 100
+                &zip_scroll_scaler 10 100
                 &zip_scroll_transform INPUT_TRANSFORM_X_INVERT
             >;
         };
