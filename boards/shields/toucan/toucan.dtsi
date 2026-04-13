@@ -142,7 +142,7 @@ glidepoint_listener: glidepoint_listener {
     ignore-layers = <1 5>;
     prevent_movement_during_tap;
     tap-timout-ms = <150>;
-    tap-to-drag;
+//    tap-to-drag;
     circular-scroll;
     circular-scroll-rim-percent = <10>;
 };
