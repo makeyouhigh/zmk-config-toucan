@@ -162,7 +162,7 @@
 
         FLUENT_SHORTCUT {
             bindings = <&kp LC(LA(LS(B)))>;
-            key-positions = <16 28>;
+            key-positions = <16 17>;
         };
 
         BT_USB {
@@ -177,7 +177,7 @@
 
         FLUENT_SHORCUT_2 {
             bindings = <&kp LC(LA(LS(B)))>;
-            key-positions = <31 19>;
+            key-positions = <18 19>;
         };
     };
 
