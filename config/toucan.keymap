@@ -160,7 +160,7 @@
             key-positions = <16 15 14 37>;
         };
 
-        FLUENT_SHORTCUT {
+        FS_WIN_1 {
             bindings = <&kp LC(LA(LS(B)))>;
             key-positions = <16 17>;
         };
@@ -175,9 +175,19 @@
             key-positions = <29 28>;
         };
 
-        FLUENT_SHORCUT_2 {
+        FS_WIN_2 {
             bindings = <&kp LC(LA(LS(B)))>;
             key-positions = <18 19>;
+        };
+
+        FS_SC_1. {
+            bindings = <&kp LC(LA(LS(T)))>;
+            key-positions = <15 16>;
+        };
+
+        FS_SC_2 {
+            bindings = <&kp LC(LA(LS(T)))>;
+            key-positions = <20 19>;
         };
     };
 
