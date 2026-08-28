@@ -162,7 +162,7 @@
 
         FS_WIN_1 {
             bindings = <&kp LC(LA(LS(B)))>;
-            key-positions = <16 17>;
+            key-positions = <28 29>;
         };
 
         BT_USB {
@@ -172,22 +172,22 @@
 
         WINMINIMIZE {
             bindings = <&WINMINIMIZE>;
-            key-positions = <29 28>;
+            key-positions = <25 26>;
         };
 
         FS_WIN_2 {
             bindings = <&kp LC(LA(LS(B)))>;
-            key-positions = <18 19>;
+            key-positions = <6 7>;
         };
 
         FS_SC_1. {
             bindings = <&kp LC(LA(LS(T)))>;
-            key-positions = <15 16>;
+            key-positions = <27 28>;
         };
 
         FS_SC_2 {
             bindings = <&kp LC(LA(LS(T)))>;
-            key-positions = <20 19>;
+            key-positions = <7 8>;
         };
     };
 
